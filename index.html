@@ -7,10 +7,23 @@
 </head>
 <body>
     <h1>hello</h1>
+    <video src="" id="videoplayer"></video>
     <script>
 
         navigator
-        
+        .mediaDevices
+        .getUserMedia({video: true})
+                        .then(stream => {
+                            let videoplayer = document.getElementById('videoplayer');
+            videoplayer.srcObject = stream;
+            videoplayer.play();
+        });
+
+        // navigator.mediaDevices.getUserMedia({video:true})
+        // .then( function(media){ alert(media); } ).catch(function(er){alert(er);});
+
+
+
     </script>
 </body>
 </html>
